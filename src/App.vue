@@ -28,6 +28,8 @@ const tableData = [
   },
 ]
 
+const loading = ref(true)
+
 </script>
 
 <template>
@@ -43,7 +45,7 @@ const tableData = [
 
   <el-button>Default</el-button>
 
-  <el-table :data="tableData" style="width: 100%">
+  <el-table :data="tableData" style="width: 100%" v-loading="loading">
     <el-table-column prop="date" label="Date" width="180" />
     <el-table-column prop="name" label="Name" width="180" />
     <el-table-column prop="address" label="Address" />
