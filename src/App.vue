@@ -30,6 +30,10 @@ const tableData = [
 
 const loading = ref(true)
 
+setTimeout(function () {
+  loading.value = false
+}, 3000)
+
 </script>
 
 <template>
