@@ -36,8 +36,9 @@ const tableData = ref([
     },
 ])
 
-const deleteRow = (index: number) => {
-    tableData.value.splice(index, 1)
+const deleteRow = (scope) => {
+    console.log(scope.$index)
+    tableData.value.splice(scope.$index, 1)
 }
 
 const onAddItem = () => {
@@ -84,7 +85,7 @@ interface Scope { row: Record<string, unknown>; $index: number; }
                         link
                         type="primary"
                         size="small"
-                        @click.prevent="deleteRow(scope.$index)"
+                        @click.prevent="deleteRow(scope)"
                 >
                     Remove
                 </el-button>
