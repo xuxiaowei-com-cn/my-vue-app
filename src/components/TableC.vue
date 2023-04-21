@@ -19,13 +19,12 @@ export default defineComponent({
     data: {
       type: Array,
       default: () => [],
-    },
-    deleteRow: {
-      type: Function,
-      default: () => {},
-    },
+    }
   },
   setup(props) {
+    const deleteRow = (index: number) => {
+      props.data.splice(index, 1)
+    }
     return () =>
       h(ElTable, { data: props.data, style: { width: "100%" }, maxHeight: 250 }, [
         h(ElTableColumn, { fixed: true, prop: "date", label: "Date", width: 150 }),
@@ -45,7 +44,7 @@ export default defineComponent({
                   link: true,
                   type: "primary",
                   size: "small",
-                  onClick: () => props.deleteRow(scope.$index),
+                  onClick: () => deleteRow(scope.$index),
                 },
                 "Remove"
               );

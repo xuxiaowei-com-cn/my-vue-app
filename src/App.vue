@@ -37,6 +37,7 @@ const tableData = ref([
 ])
 
 const deleteRow = (index: number) => {
+  console.log(index)
   tableData.value.splice(index, 1)
 }
 
