@@ -52,6 +52,8 @@ const onAddItem = () => {
     })
 }
 
+interface Scope { row: Record<string, unknown>; $index: number; }
+
 </script>
 
 <template>
@@ -75,6 +77,8 @@ const onAddItem = () => {
         <el-table-column prop="address" label="Address" width="600" />
         <el-table-column prop="zip" label="Zip" width="120" />
         <el-table-column fixed="right" label="Operations" width="120">
+            <!-- #default="scope:any" -->
+            <!-- #default="scope:Scope" -->
             <template #default="scope">
                 <el-button
                         link
